@@ -49,7 +49,7 @@ const HomePage = () => {
 
   return (
     <div className="w-full h-screen flex justify-center items-center p-6 bg-black">
-      <div className={`w-full max-w-xs h-[calc(100%-20px)] rounded-3xl ${cardBg} shadow-xl overflow-hidden`}>
+      <div className={`w-full max-w-xs h-[calc(100%-60px)] rounded-3xl ${cardBg} shadow-xl overflow-hidden`}>
         <Header
           darkMode={darkMode}
           iconColor={iconColor}
@@ -165,7 +165,7 @@ const QrFeatureView = ({ darkMode, qrSubOption }) => {
   return (
     <div className={`${textColor} col-span-2 text-center font-semibold`}>
       {qrSubOption === 'scan' ? (
-        <QrScanner />
+        <QrScanner/>
       ) : (
         <>
           <div className="flex justify-center items-center mt-20">

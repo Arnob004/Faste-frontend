@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function App() {
   return (
     <>
-      <div className="w-full h-screen flex justify-center items-center p-6 bg-gradient-to-br from-zinc-900 to-zinc-800">
+      <div className="w-full h-screen flex justify-center items-center bg-gradient-to-br from-zinc-900 to-zinc-800">
         <div className="w-full max-w-xs h-[80vh] rounded-3xl bg-zinc-700 flex flex-col justify-center items-center space-y-8 p-8 shadow-xl">
           <h1 className="text-white text-3xl font-bold mb-4 text-center">Welcome to Snape</h1>
           <p className="text-zinc-300 text-center">
