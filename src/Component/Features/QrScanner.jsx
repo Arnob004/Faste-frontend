@@ -57,7 +57,7 @@ const QrScanner = () => {
       <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
       <div
         id="reader"
-        className="relative w-[300px] h-[300px] border-4 border-green-500 rounded-lg box-border"
+        className="relative w-[300px] h-[100px] border-4 border-green-500 rounded-lg box-border"
       >
         {/* Corner accents */}
         <div
