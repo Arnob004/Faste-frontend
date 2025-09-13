@@ -19,7 +19,7 @@ const QrScanner = () => {
               cameraId,
               {
                 fps: 10,
-                qrbox: { width: 250, height: 250 },
+                qrbox: { width: 250, height: 500 },
               },
               (decodedText) => {
                 console.log("QR Code detected: ", decodedText);
@@ -55,7 +55,7 @@ const QrScanner = () => {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
-      <div id="reader" style={{ width: "300px", height: "300px" }}></div>
+      <div id="reader" style={{ width: "300px", height: "500px" }}></div>
     </div>
   );
 };
