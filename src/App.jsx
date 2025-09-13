@@ -12,7 +12,7 @@ function App() {
           <p className="text-zinc-300 text-center">
             Fast and easy file sharing with multiple connection options.
           </p>
-          <Link to="/home" className="w-52 h-72 flex justify-center items-center bg-amber-400 hover:bg-amber-300 rounded-full font-semibold text-zinc-900 text-3xl hover:scale-95 cursor-pointer duration-300 font-serif shadow-md transition">
+          <Link to="/home" className=" md:w-52 w-52 h-36 md:h-72 flex justify-center items-center bg-amber-400 hover:bg-amber-300 rounded-full font-semibold text-zinc-900 text-3xl hover:scale-95 cursor-pointer duration-300 font-serif shadow-md transition">
             Connect
           </Link>
           <small className="text-zinc-400 text-center max-w-xs">
