@@ -6,12 +6,14 @@ const QrScanner = () => {
     const qrCodeRegionId = "reader";
     const html5QrCode = new Html5Qrcode(qrCodeRegionId);
 
-    // Available cameras fetch
+    // Get available cameras
     Html5Qrcode.getCameras()
       .then((devices) => {
         if (devices && devices.length) {
-          // প্রথম camera নাও (চাইলে dropdown দিয়ে select করা যাবে)
-          const cameraId = devices[0].id;
+          // Try to find back camera (environment facing)
+          const backCamera = devices.find(device => device.label.toLowerCase().includes("back")) || devices[0];
+          const cameraId = backCamera.id;
+
           html5QrCode
             .start(
               cameraId,
@@ -51,8 +53,8 @@ const QrScanner = () => {
   }, []);
 
   return (
-    <div>
-      <h2 className="text-xl font-bold mb-2">QR Code Scanner</h2>
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
       <div id="reader" style={{ width: "300px", height: "300px" }}></div>
     </div>
   );
