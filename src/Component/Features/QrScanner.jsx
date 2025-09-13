@@ -53,10 +53,51 @@ const QrScanner = () => {
   }, []);
 
   return (
-    <div className="w-full h-full flex flex-col justify-center items-center">
-      <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
-      <div id="reader" style={{ width: "300px", height: "300px" }}></div>
-    </div>
+    <>
+      <style>
+        {`
+          #reader {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            border: 3px solid #4CAF50; /* Green border for visibility */
+            border-radius: 8px; /* Rounded corners if desired */
+            box-sizing: border-box;
+            margin: 0 auto;
+          }
+
+          /* Optional corners as accents */
+          #reader::before, #reader::after {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #4CAF50;
+            box-sizing: border-box;
+          }
+
+          /* Top-left corner */
+          #reader::before {
+            top: 0;
+            left: 0;
+            border-right: none;
+            border-bottom: none;
+          }
+
+          /* Bottom-right corner */
+          #reader::after {
+            bottom: 0;
+            right: 0;
+            border-left: none;
+            border-top: none;
+          }
+        `}
+      </style>
+      <div className="w-full h-full flex flex-col justify-center items-center">
+        <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
+        <div id="reader"></div>
+      </div>
+    </>
   );
 };
 
