@@ -3,8 +3,9 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';  // Import BrowserRouter
 import './index.css';
 import App from './App.jsx';
-import HomePage from './Component/Page/HomePage.jsx';
+
 import SharePage from './Component/Page/SharePage.jsx';
+import HomePage from './Component/Page/HomePage.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
