@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import { Html5Qrcode } from "html5-qrcode";
+import { redirect } from "react-router-dom";
 
 const QrScanner = () => {
   useEffect(() => {
@@ -21,7 +22,8 @@ const QrScanner = () => {
               },
               (decodedText) => {
                 console.log("QR Code detected: ", decodedText);
-                alert(`QR Code detected: ${decodedText}`);
+                // alert(`QR Code detected: ${decodedText}`);
+                redirect("/share")
               },
               (errorMessage) => {
                 console.log("Scanning error: ", errorMessage);
