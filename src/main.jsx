@@ -5,7 +5,8 @@ import './index.css';
 import App from './App.jsx';
 
 import SharePage from './Component/Page/SharePage.jsx';
-import HomePage from './Component/Page/HomePage.jsx';
+import HomePage from './Component/Page/homePage.jsx';
+
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
