@@ -22,13 +22,12 @@ const QrScanner = () => {
           html5QrCode
             .start(
               cameraId,
-              {
-                fps: 10,
-                qrbox: { width: 250, height: 250 },
-              },
+              { fps: 10, qrbox: { width: 250, height: 250 } },
               (decodedText) => {
                 console.log("QR Code detected: ", decodedText);
-                navigate("/share");
+
+                // ✅ এখানে ডাটা পাঠাচ্ছি
+                navigate("/share", { state: { qrData: decodedText } });
               },
               (errorMessage) => {
                 console.log("Scanning error: ", errorMessage);
@@ -48,12 +47,8 @@ const QrScanner = () => {
     return () => {
       html5QrCode
         .stop()
-        .then(() => {
-          console.log("QR Code scanning stopped.");
-        })
-        .catch((err) => {
-          console.error("Error while stopping scanner:", err);
-        });
+        .then(() => console.log("QR Code scanning stopped."))
+        .catch((err) => console.error("Error while stopping scanner:", err));
     };
   }, [navigate]);
 
