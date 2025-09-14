@@ -165,12 +165,10 @@ const QrFeatureView = ({ darkMode, qrSubOption }) => {
   return (
     <div className={`${textColor} col-span-2 text-center font-semibold`}>
       {qrSubOption === 'scan' ? (
-        <QrScanner/>
+        <QrScanner />
       ) : (
         <>
-          <div className="flex justify-center items-center mt-20">
-            <img src={`https://api.qrserver.com/v1/create-qr-code/?data=${"125sga"}&size=150x150`} className='p-2 ' alt="" />
-          </div>
+          <QrCodeShow />
         </>
       )}
     </div>

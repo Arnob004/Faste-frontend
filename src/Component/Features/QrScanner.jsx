@@ -17,7 +17,7 @@ const QrScanner = () => {
               cameraId,
               {
                 fps: 10,
-                qrbox: { width: 250, height: 260 },
+                qrbox: { width: 250, height: 250 },
               },
               (decodedText) => {
                 console.log("QR Code detected: ", decodedText);
