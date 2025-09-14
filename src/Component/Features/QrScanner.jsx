@@ -28,7 +28,6 @@ const QrScanner = () => {
               },
               (decodedText) => {
                 console.log("QR Code detected: ", decodedText);
-                // Redirect to /share
                 navigate("/share");
               },
               (errorMessage) => {
