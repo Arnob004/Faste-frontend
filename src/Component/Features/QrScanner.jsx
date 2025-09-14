@@ -55,17 +55,7 @@ const QrScanner = () => {
       <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
       <div
         id="reader"
-        className="relative w-[300px] h-[300px] border-4 border-green-500 rounded-lg box-border"
       >
-        {/* Corner accents */}
-        <div
-          className="absolute top-0 left-0 w-5 h-5 border-4 border-green-500 border-r-0 border-b-0"
-          style={{ boxSizing: "border-box" }}
-        ></div>
-        <div
-          className="absolute bottom-0 right-0 w-5 h-5 border-4 border-green-500 border-l-0 border-t-0"
-          style={{ boxSizing: "border-box" }}
-        ></div>
       </div>
     </div>
   );
