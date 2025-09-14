@@ -5,7 +5,6 @@ const QrScanner = () => {
   useEffect(() => {
     const qrCodeRegionId = "reader";
     const html5QrCode = new Html5Qrcode(qrCodeRegionId);
-
     // Get available cameras
     Html5Qrcode.getCameras()
       .then((devices) => {
@@ -13,13 +12,12 @@ const QrScanner = () => {
           // Try to find back camera (environment facing)
           const backCamera = devices.find(device => device.label.toLowerCase().includes("back")) || devices[0];
           const cameraId = backCamera.id;
-
           html5QrCode
             .start(
               cameraId,
               {
                 fps: 10,
-                qrbox: { width: 250, height: 350 },
+                qrbox: { width: 250, height: 250 },
               },
               (decodedText) => {
                 console.log("QR Code detected: ", decodedText);
@@ -57,7 +55,7 @@ const QrScanner = () => {
       <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
       <div
         id="reader"
-        className="relative w-[300px] h-[100px] border-4 border-green-500 rounded-lg box-border"
+        className="relative w-[300px] h-[300px] border-4 border-green-500 rounded-lg box-border"
       >
         {/* Corner accents */}
         <div
