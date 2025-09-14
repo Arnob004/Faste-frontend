@@ -1,18 +1,24 @@
 import React, { useEffect } from "react";
 import { Html5Qrcode } from "html5-qrcode";
-import { redirect } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const QrScanner = () => {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const qrCodeRegionId = "reader";
     const html5QrCode = new Html5Qrcode(qrCodeRegionId);
-    // Get available cameras
+
     Html5Qrcode.getCameras()
       .then((devices) => {
         if (devices && devices.length) {
-          // Try to find back camera (environment facing)
-          const backCamera = devices.find(device => device.label.toLowerCase().includes("back")) || devices[0];
+          const backCamera =
+            devices.find((device) =>
+              device.label.toLowerCase().includes("back")
+            ) || devices[0];
+
           const cameraId = backCamera.id;
+
           html5QrCode
             .start(
               cameraId,
@@ -22,8 +28,8 @@ const QrScanner = () => {
               },
               (decodedText) => {
                 console.log("QR Code detected: ", decodedText);
-                // alert(`QR Code detected: ${decodedText}`);
-                redirect("/share")
+                // Redirect to /share
+                navigate("/share");
               },
               (errorMessage) => {
                 console.log("Scanning error: ", errorMessage);
@@ -50,15 +56,12 @@ const QrScanner = () => {
           console.error("Error while stopping scanner:", err);
         });
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
       <h2 className="text-xl font-bold mb-4">QR Code Scanner</h2>
-      <div
-        id="reader"
-      >
-      </div>
+      <div id="reader"></div>
     </div>
   );
 };
