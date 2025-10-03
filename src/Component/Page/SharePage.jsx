@@ -17,11 +17,10 @@ const SharePage = () => {
             photo: "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg",
         },
     };
-
     return (
         <div>
             <div className="w-full h-screen flex justify-center items-center p-4 bg-zinc-900">
-                <div className="w-full max-w-xs h-[90vh] rounded-3xl bg-zinc-700 flex flex-col overflow-hidden shadow-lg">
+                <div className="w-full max-w-md h-[90vh] rounded-3xl bg-zinc-700 flex flex-col overflow-hidden shadow-lg">
                     {/* top */}
                     <div className="relative w-full h-14 bg-zinc-600 flex items-center px-4 text-white font-semibold text-lg">
                         <Link to="/home">

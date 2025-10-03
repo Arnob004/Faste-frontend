@@ -10,6 +10,7 @@ import { BiLinkAlt } from "react-icons/bi";
 import Header from "../Header";
 import useUser from "../hooks/useUser";
 import useDarkMode from "../hooks/useDarkMode";
+import { MdGroups2 } from "react-icons/md";
 
 const HomePage = () => {
   const { user } = useUser();
@@ -22,18 +23,17 @@ const HomePage = () => {
     setActiveJoinOption(option);
     setQrSubOption(null);
   };
+
   const closeJoinOption = () => {
     setActiveJoinOption(null);
     setQrSubOption(null);
   };
+
   const openQrSubOption = (subOption) => setQrSubOption(subOption);
   const closeQrSubOption = () => setQrSubOption(null);
-
   const cardBg = darkMode ? "bg-zinc-700" : "bg-white";
   const iconColor = darkMode ? "text-white" : "text-zinc-900";
-
   const showBackButton = qrSubOption || activeJoinOption;
-
   return (
     <div className="w-full h-screen flex justify-center items-center p-6 bg-black">
       <div className={`w-full max-w-xs h-[calc(100%-60px)] rounded-3xl ${cardBg} shadow-xl overflow-hidden`}>
@@ -45,7 +45,6 @@ const HomePage = () => {
           showBackButton={showBackButton}
           onBackClick={qrSubOption ? closeQrSubOption : closeJoinOption}
         />
-
         <div className="p-6 grid grid-cols-2 gap-6">
           {!activeJoinOption && (
             <>
@@ -53,9 +52,9 @@ const HomePage = () => {
               <JoinOption icon={<FiSearch size={32} />} label="Search by ID" darkMode={darkMode} onClick={() => openJoinOption("search")} />
               <JoinOption icon={<FaWifi size={32} />} label="WiFi Hotspot" darkMode={darkMode} onClick={() => openJoinOption("wifi")} />
               <JoinOption icon={<BiLinkAlt size={32} />} label="Share Link" darkMode={darkMode} onClick={() => openJoinOption("link")} />
+              <JoinOption icon={<MdGroups2 size={32} />} label="Group Share" darkMode={darkMode} onClick={() => openJoinOption("group")} />
             </>
           )}
-
           {activeJoinOption === "qr" && !qrSubOption && <QrSubmenu darkMode={darkMode} openQrSubOption={openQrSubOption} />}
           {activeJoinOption === "qr" && qrSubOption && <QrFeatureView darkMode={darkMode} qrSubOption={qrSubOption} />}
           {activeJoinOption && activeJoinOption !== "qr" && <FeatureView darkMode={darkMode} joinOption={activeJoinOption} />}
@@ -64,5 +63,4 @@ const HomePage = () => {
     </div>
   );
 };
-
 export default HomePage;
